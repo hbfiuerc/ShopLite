@@ -76,5 +76,52 @@ async function fetchProductsFromAPI(params) {
         `
     }
 }
-
 fetchProductsFromAPI();
+
+
+function getCart() {
+    const cart = localStorage.getItem("shoplite_cart");
+
+    return cart ? JSON.parse(cart) : [];
+}
+
+function updateCartCount() {
+    const cart = getCart();
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    
+
+    const badge = document.querySelector("#cart-count");
+    if (badge) {
+        badge.textContent = totalItems; 
+    }
+}
+
+function addToCart(productId) {
+    let cart = getCart();
+    
+    const existingItem = cart.find(item => item.id === productId);
+
+    if (existingItem) {
+        existingItem.quantity += 1; 
+    } else {
+
+        cart.push({ id: productId, quantity: 1 });
+    }
+
+    localStorage.setItem("shoplite_cart", JSON.stringify(cart));
+    
+    updateCartCount();
+    alert("Đã thêm sản phẩm vào giỏ hàng thành công!");
+}
+const productsGridContainer = document.querySelector("#product-grid");
+
+productsGridContainer.addEventListener("click", function(e) {
+
+    if (e.target.classList.contains("btn-add")) {
+        
+        const productId = parseInt(e.target.dataset.id);
+        addToCart(productId);
+    }
+});
+
+updateCartCount();
