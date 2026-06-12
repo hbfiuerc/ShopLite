@@ -24,7 +24,9 @@ function renderProduct(dataList){
 
                     <div class="card-body d-flex flex-column bg-white border-top">
                         <h6 class="card-title fw-bold text-dark text-truncate" title="${product.title}">
-                            ${product.title}
+                            <a href="/pages/product.html?id=${product.id}" class="text-decoration-none text-dark">
+                                ${product.title}
+                            </a>    
                         </h6>
                         
                         <span class="badge bg-secondary mb-3 align-self-start text-uppercase small">${product.category}</span>
