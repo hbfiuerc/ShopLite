@@ -42,7 +42,6 @@ registerForm.addEventListener("submit", function(e) {
         
     
         const newUser = { fullname, email, password };
-        console.log("Dữ liệu tài khoản mới:", newUser);
 
     
         registerForm.reset();

@@ -6,7 +6,6 @@ async function fetchProductDetail(){
 
     if(!productId){
         container.innerHTML=`<p> Vui long chon 1 san pham</p>`;
-
         return;
     }
 
@@ -47,9 +46,52 @@ async function fetchProductDetail(){
 
 
     }catch(error){
-        console.error(error);
         container.innerHTML=`<p> Co loi say ra : ${error.message}`;
     }
 }
 
 fetchProductDetail();
+
+
+function getCart() {
+    const cart = localStorage.getItem("shoplite_cart");
+    return cart ? JSON.parse(cart) : [];
+}
+
+function updateCartCount() {
+    const cart = getCart();
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    const badge = document.querySelector("#cart-count");
+    if (badge) {
+        badge.textContent = totalItems;
+    }
+}
+
+function addToCart(productId) {
+    let cart = getCart();
+    const existingItem = cart.find(item => item.id === productId);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ id: productId, quantity: 1 });
+    }
+
+    localStorage.setItem("shoplite_cart", JSON.stringify(cart));
+    updateCartCount(); 
+    alert(" Đã thêm sản phẩm này vào giỏ hàng thành công từ trang chi tiết!");
+}
+
+
+const detailContainer = document.querySelector("#product-detail-container");
+
+detailContainer.addEventListener("click", function(e) {
+    if (e.target.classList.contains("btn-add")) {
+        
+        const idToBuy = parseInt(e.target.dataset.id);
+        
+        addToCart(idToBuy);
+    }
+});
+
+updateCartCount();

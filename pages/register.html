@@ -8,39 +8,40 @@
 </head>
 <body>
     <main class="container my-5" style="min-height: 70vh;">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
-            <div class="bg-white rounded-3 shadow-sm p-4 p-sm-5">
-                <h3 class="fw-bold text-center text-dark mb-4">Đăng Ký Thành Viên</h3>
-                
-                <form id="register-form" novalidate>
+        <a href="/index.html" class="btn btn-outline-secondary mb-4 btn-sm">&larr; Quay lại danh sách</a>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="bg-white rounded-3 shadow-sm p-4 p-sm-5">
+                    <h3 class="fw-bold text-center text-dark mb-4">Đăng Ký Thành Viên</h3>
                     
-                    <div class="mb-3">
-                        <label for="fullname" class="form-label fw-semibold">Họ và tên</label>
-                        <input type="text" class="form-control rounded-2" id="fullname" placeholder="Nhập họ và tên của bạn">
-                        <div class="invalid-feedback" id="fullname-error">Họ và tên không được để trống!</div>
-                    </div>
+                    <form id="register-form" novalidate>
+                        
+                        <div class="mb-3">
+                            <label for="fullname" class="form-label fw-semibold">Họ và tên</label>
+                            <input type="text" class="form-control rounded-2" id="fullname" placeholder="Nhập họ và tên của bạn">
+                            <div class="invalid-feedback" id="fullname-error">Họ và tên không được để trống!</div>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label fw-semibold">Địa chỉ Email</label>
-                        <input type="email" class="form-control rounded-2" id="email" placeholder="name@example.com">
-                        <div class="invalid-feedback" id="email-error">Email không đúng định dạng!</div>
-                    </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Địa chỉ Email</label>
+                            <input type="email" class="form-control rounded-2" id="email" placeholder="name@example.com">
+                            <div class="invalid-feedback" id="email-error">Email không đúng định dạng!</div>
+                        </div>
 
-                    <div class="mb-4">
-                        <label for="password" class="form-label fw-semibold">Mật khẩu</label>
-                        <input type="password" class="form-control rounded-2" id="password" placeholder="Tối thiểu 6 ký tự">
-                        <div class="invalid-feedback" id="password-error">Mật khẩu phải từ 6 ký tự trở lên!</div>
-                    </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-semibold">Mật khẩu</label>
+                            <input type="password" class="form-control rounded-2" id="password" placeholder="Tối thiểu 6 ký tự">
+                            <div class="invalid-feedback" id="password-error">Mật khẩu phải từ 6 ký tự trở lên!</div>
+                        </div>
 
-                    <button type="submit" class="btn btn-primary w-100 py-2 rounded-2 fw-bold shadow-sm">
-                        Đăng Ký Ngay
-                    </button>
-                </form>
+                        <button type="submit" class="btn btn-primary w-100 py-2 rounded-2 fw-bold shadow-sm">
+                            Đăng Ký Ngay
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
 <script src="/js/register.js"></script>
 </body>

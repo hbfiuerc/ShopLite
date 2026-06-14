@@ -31,10 +31,6 @@ function renderProduct(dataList){
                         
                         <span class="badge bg-secondary mb-3 align-self-start text-uppercase small">${product.category}</span>
                         
-                        <p class="card-text text-muted flex-grow-1 small text-truncate-3" style="line-height: 1.5;">
-                            ${product.description}
-                        </p>
-                        
                         <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
                             <span class="text-danger class-price fw-bold fs-5">$${product.price.toFixed(2)}</span>
                             
@@ -69,8 +65,6 @@ async function fetchProductsFromAPI(params) {
 
         renderProduct(jsonProduct);
     }catch(error){
-        console.error("Loi du lieu: "+ error);
-
         productGrid.innerHTML = `
             <p> Loi du lieu: ${error.message}</p>
         `

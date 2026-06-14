@@ -56,7 +56,6 @@ async function displayCart() {
         totalEl.textContent = `$${totalCartMoney.toFixed(2)}`;
 
     } catch (error) {
-        console.error("Lỗi xử lý giỏ hàng:", error);
     }
 }
 
@@ -76,3 +75,22 @@ document.querySelector("#cart-table-body").addEventListener("click", function(e)
 });
 
 displayCart();
+
+function getCart() {
+    const cart = localStorage.getItem("shoplite_cart");
+
+    return cart ? JSON.parse(cart) : [];
+}
+
+function updateCartCount() {
+    const cart = getCart();
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    
+
+    const badge = document.querySelector("#cart-count");
+    if (badge) {
+        badge.textContent = totalItems; 
+    }
+}
+
+updateCartCount();
